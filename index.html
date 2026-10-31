@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L.O.V.E. Engine v2.6 | Neural Birthday Experience</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Neural Network Canvas -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Floating Audio Control -->
+    <button id="music-btn" class="floating-music-btn">
+        <span class="pulse-dot"></span> 🎵 Play Romantic Track
+    </button>
+    <audio id="bg-music" loop>
+        <source src="assets/song.mp3.mpeg" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        
+        <!-- Top Terminal Status Bar -->
+        <header class="cyber-header">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="model-badge">MODEL: HEART-GPT-4o // WEIGHTS: 100% HERS</div>
+            <div class="status-live">● SYSTEM ONLINE</div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-card glass-panel">
+            <div class="glitch-badge">⚡ DEPLOYING BIRTHDAY PROTOCOL</div>
+            <h1 class="hero-title">Happy Birthday, <span id="her-name" class="gradient-text">My Favorite Notification</span> ❤️</h1>
+            <p class="hero-subtitle">
+                दुनिया के सारे डेटासेट्स और एल्गोरिदम फेल हो जाते हैं, जब तुम्हारी एक मुस्कान मेरे न्यूरल नेटवर्क को हिट करती है।
+            </p>
+
+            <!-- Live Relationship Uptime Counter -->
+            <div class="uptime-box">
+                <div class="uptime-label">SYSTEM UPTIME (TIME SINCE YOU CHANGED MY WORLD):</div>
+                <div id="live-timer" class="timer-grid">
+                    <div class="time-unit"><span id="days">000</span><small>DAYS</small></div>
+                    <div class="time-unit"><span id="hours">00</span><small>HRS</small></div>
+                    <div class="time-unit"><span id="mins">00</span><small>MINS</small></div>
+                    <div class="time-unit"><span id="secs">00</span><small>SECS</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: AI/ML Love Metrics Telemetry -->
+        <section class="telemetry-section">
+            <h2 class="section-heading">📊 Real-Time Heart Telemetry</h2>
+            <div class="metrics-grid">
+                <div class="metric-card glass-panel">
+                    <div class="metric-title">Compatiblity Accuracy</div>
+                    <div class="metric-value">99.98%</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 99.9%"></div></div>
+                    <small>Validated on Infinite Epochs</small>
+                </div>
+                <div class="metric-card glass-panel">
+                    <div class="metric-title">Sadness Loss Function</div>
+                    <div class="metric-value">0.0000</div>
+                    <div class="progress-bar"><div class="progress-fill cyan" style="width: 100%"></div></div>
+                    <small>Zero Error When You Smile</small>
+                </div>
+                <div class="metric-card glass-panel">
+                    <div class="metric-title">Heart-Rate Spike</div>
+                    <div class="metric-value" id="bpm-val">142 BPM</div>
+                    <div class="progress-bar"><div class="progress-fill pink" style="width: 88%"></div></div>
+                    <small>Triggered By Eye Contact</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: LLM Shayari Synthesis Engine -->
+        <section class="shayari-engine glass-panel">
+            <div class="engine-header">
+                <div>
+                    <h2 class="section-heading" style="margin:0;">🧠 Neural Shayari Synthesizer</h2>
+                    <p class="sub-text">मूड़ सिलेक्ट करो और देखो मेरा दिल तुम्हारे लिए क्या जनरेट करता है</p>
+                </div>
+                <div class="sentiment-badge">Sentiment: <span id="sentiment-score">Pure Ishq (99.9%)</span></div>
+            </div>
+
+            <!-- Mood Filter Buttons -->
+            <div class="mood-tabs">
+                <button class="mood-btn active" onclick="generateShayari('roohani', this)">✨ रूहानी इश्क़</button>
+                <button class="mood-btn" onclick="generateShayari('husn', this)">🌙 तुम्हारी सादगी</button>
+                <button class="mood-btn" onclick="generateShayari('tech', this)">💻 AI वाला प्यार</button>
+                <button class="mood-btn" onclick="generateShayari('safar', this)">🛤️ हमारा सफर</button>
+            </div>
+
+            <!-- LLM Output Terminal -->
+            <div class="llm-terminal">
+                <div class="terminal-top">
+                    <span>prompt: generate_shayari_for_her --temperature=1.0</span>
+                    <button class="next-btn" onclick="nextShayari()">🔄 Regenerate</button>
+                </div>
+                <div id="shayari-output" class="shayari-text"></div>
+            </div>
+        </section>
+
+        <!-- Section 3: 3D Memory Dataset (Photo Gallery) -->
+        <section class="gallery-section">
+            <h2 class="section-heading">📸 High-Resolution Memory Dataset</h2>
+            <p class="sub-text" style="text-align:center; margin-bottom: 25px;">हर फोटो पर टच करो—हर फ्रेम में एक कहानी छुपी है</p>
+            <div id="photo-grid" class="photo-grid">
+                <!-- Javascript se Cards Render honge -->
+            </div>
+        </section>
+
+        <!-- Section 4: Interactive Blow-Out Cake -->
+        <section class="cake-section glass-panel">
+            <h2 class="section-heading">🎂 Make A Wish & Blow The Candle</h2>
+            <p class="sub-text">कैंडल पर टैप करो या **Mic Enable** करके सच में फोन पर फूंक मारो!</p>
+            
+            <div class="cake-wrapper" onclick="extinguishCandle()">
+                <div class="candle">
+                    <div id="flame" class="flame"></div>
+                </div>
+                <div class="cake-top"></div>
+                <div class="cake-middle"></div>
+                <div class="cake-bottom"></div>
+            </div>
+
+            <div class="cake-controls">
+                <button id="mic-btn" class="cyber-btn" onclick="startMicBlowDetection()">🎙️ Enable Mic To Blow Candle</button>
+                <p id="wish-status" class="wish-msg">Waiting for the birthday girl's wish...</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Biometric Encrypted Love Vault -->
+        <section class="vault-section glass-panel">
+            <h2 class="section-heading">🔐 Encrypted Core Memory Vault</h2>
+            <p class="sub-text">नीचे दिए फिंगरप्रिंट स्कैनर को **2 सेकंड तक दबाए रखो (Press & Hold)**</p>
+
+            <div id="scanner-box" class="scanner-container">
+                <div id="fingerprint-btn" class="fingerprint-pad">
+                    <div class="scan-line"></div>
+                    <span class="fp-icon">🧬</span>
+                </div>
+                <div id="scan-status" class="scan-text">IDENTITY VERIFICATION REQUIRED</div>
+            </div>
+
+            <!-- Hidden Secret Letter -->
+            <div id="secret-letter" class="secret-letter hidden">
+                <h3>💌 Decrypted Message From My Heart:</h3>
+                <p>
+                    मेरी जान,<br><br>
+                    लोग कहते हैं हम इंजीनियर्स हर चीज़ लॉजिक और कोड में सोचते हैं। पर सच बताऊँ? जब से तुम मेरी ज़िंदगी में आई हो, मेरे सारे लॉजिक धरे के धरे रह गए हैं। तुम्हारी आवाज़ मेरे दिन भर की थकान को एक सेकंड में मिटा देती है।<br><br>
+                    मेरी ज़िंदगी के हर आने वाले प्रोजेक्ट, हर सफर और हर सपने में मुझे सिर्फ तुम्हारा साथ चाहिए। जन्मदिन की बहुत-बहुत शुभकामनाएं मेरी जान! ❤️
+                </p>
+                <div class="signature">— Forever Your Personal Engineer ❤️</div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
